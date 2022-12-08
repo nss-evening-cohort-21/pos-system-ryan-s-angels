@@ -1,0 +1,17 @@
+{
+  "-NIjOqTf49Ry5Sel4y57": {
+    "firebaseKey": "-NIjOqTf49Ry5Sel4y57",
+    "itemName": "Pepperoni Pizza",
+    "itemPrice": "20.00"
+  },
+  "-NIjOqTgA9f0GnYOYQIL": {
+    "firebaseKey": "-NIjOqTgA9f0GnYOYQIL",
+    "itemName": "Cheese Pizza",
+    "itemPrice": "20.00"
+  },
+  "-NIjOqTipIFB8qdv4Nrw": {
+    "firebaseKey": "-NIjOqTipIFB8qdv4Nrw",
+    "itemName": "Sausage Pizza",
+    "itemPrice": "18.99"
+  }
+}
