@@ -4,8 +4,8 @@ const domBuilder = () => {
   const domString = `
   <div id="navigation"></div>
   <div id="main-container">
-  <div id="homeLoggedOut"></div>
-  <div id="homeLoggedIn"></div>
+  <div id="home-logged-out"></div>
+  <div id="home-logged-in"></div>
   <div id="buttons"></div>
   <div id="cardsOnDom"></div>
   <div id="form-container"></div>
