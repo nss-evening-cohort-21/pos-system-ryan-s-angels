@@ -1,9 +1,9 @@
 import logoutButton from '../components/logoutButton';
-import domBuilder from '../components/Shared/domBuilder';
-import navBar from '../components/Shared/navBar';
+import domBuilder from '../components/shared/domBuilder';
+import navBar from '../components/shared/navBar';
 import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
-import navigationEvents from '../events/navigationEvents';
+import navigationEvents from '../events/navEvents';
 
 const startApp = (user) => {
   domBuilder(user);
