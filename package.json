@@ -1,7 +1,7 @@
 {
-  "name": "webpack-5.0-template",
+  "name": "two-turntables-and-a-hot-calzone",
   "version": "1.0.0",
-  "description": "",
+  "description": "hip-hop and carbs baby",
   "main": "public/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ryan's Angels",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.2.0",
