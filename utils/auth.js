@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import clearDom from './clearDom';
 
 const signIn = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -8,6 +9,7 @@ const signIn = () => {
 
 const signOut = () => {
   firebase.auth().signOut();
+  clearDom();
 };
 
 export { signIn, signOut };
