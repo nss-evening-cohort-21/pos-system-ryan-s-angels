@@ -7,7 +7,7 @@ const domBuilder = () => {
   <div id="home-logged-out"></div>
   <div id="home-logged-in"></div>
   <div id="buttons"></div>
-  <div id="cardsOnDom"></div>
+  <div id="cards-on-dom"></div>
   <div id="form-container"></div>
   <div id="view"></div>
   </div>`;

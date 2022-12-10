@@ -1,11 +1,11 @@
 const clearDom = () => {
-  document.querySelector('#homeLoggedOut').innerHTML = '';
-  document.querySelector('#homeLoggedIn').innerHTML = '';
+  document.querySelector('#home-logged-out').innerHTML = '';
+  document.querySelector('#home-logged-in').innerHTML = '';
   document.querySelector('#navigation').innerHTML = '';
   document.querySelector('#buttons').innerHTML = '';
-  document.querySelector('#cardsOnDom').innerHTML = '';
+  document.querySelector('#cards-on-dom').innerHTML = '';
   document.querySelector('#view').innerHTML = '';
-  document.querySelector('#formContainer').innerHTML = '';
+  document.querySelector('#form-container').innerHTML = '';
 };
 
 export default clearDom;

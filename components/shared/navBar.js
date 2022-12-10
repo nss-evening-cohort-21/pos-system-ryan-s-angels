@@ -16,7 +16,7 @@ const navBar = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="create-order">New Order/a>
+              <a class="nav-link" href="#" id="create-order">New Order</a>
             </li>
           </ul>
           <span class="navbar-text">
