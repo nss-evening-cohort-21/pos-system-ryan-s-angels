@@ -1,4 +1,4 @@
-import renderToDom from '..utils/renderToDom'
+import renderToDOM from '../../utils/renderToDom';
 
 const domBuilder = () => {
   const domString = `
@@ -11,7 +11,7 @@ const domBuilder = () => {
   <div id="form-container"></div>
   <div id="view"></div>
   </div>`;
-  renderToDom('#app', domString);
+  renderToDOM('#app', domString);
 };
 
 export default domBuilder;
