@@ -6,8 +6,8 @@ import viewRevenueButton from '../components/buttons/viewRevenueButton';
 const homeLoggedIn = () => {
   welcome();
   viewOrdersButton();
-  viewRevenueButton();
   createOrdersButton();
+  viewRevenueButton();
 };
 
 export default homeLoggedIn;
