@@ -3,7 +3,7 @@ import 'firebase/auth';
 import loginButton from '../components/buttons/loginButton';
 import startApp from './startApp';
 import client from './client';
-import clearDom from './clearDom';
+import { clearDomLogout } from './clearDom';
 
 const ViewDirectorBasedOnUserAuthStatus = () => {
   firebase.initializeApp(client);
@@ -14,7 +14,7 @@ const ViewDirectorBasedOnUserAuthStatus = () => {
     } else {
       // person is NOT logged in
       loginButton();
-      clearDom();
+      clearDomLogout();
     }
   });
 };
