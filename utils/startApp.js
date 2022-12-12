@@ -1,4 +1,3 @@
-import logoutButton from '../components/buttons/logoutButton';
 import domBuilder from '../components/shared/domBuilder';
 import navBar from '../components/shared/navBar';
 import domEvents from '../events/domEvents';
@@ -12,7 +11,6 @@ const startApp = (user) => {
   domEvents(user);
   formEvents(user);
   navBar();
-  logoutButton();
   navigationEvents(user);
 };
 
