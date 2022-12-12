@@ -3,8 +3,8 @@ import createOrdersButton from '../components/buttons/createOrdersButton';
 import viewOrdersButton from '../components/buttons/viewOrdersButton';
 import viewRevenueButton from '../components/buttons/viewRevenueButton';
 
-const homeLoggedIn = () => {
-  welcome();
+const homeLoggedIn = (user) => {
+  welcome(user);
   viewOrdersButton();
   createOrdersButton();
   viewRevenueButton();
