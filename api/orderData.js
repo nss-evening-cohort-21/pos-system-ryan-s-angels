@@ -53,6 +53,18 @@ const updateOrder = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/books.json?orderBy="orderId"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }, // you technically do not need the options object for GET requests, but using it here for consistency
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 const createOrder = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
     method: 'POST',
@@ -71,5 +83,6 @@ export {
   getSingleOrder,
   createOrder,
   updateOrder,
-  deleteOrder
+  deleteOrder,
+  getOrderItems
 };

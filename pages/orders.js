@@ -9,10 +9,6 @@ const emptyOrders = () => {
 const showOrders = (array) => {
   clearDom();
 
-  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-order-btn">Add An Order</button>';
-
-  renderToDOM('#buttons', btnString);
-
   let domString = '';
   array.forEach((item) => {
     domString += `
