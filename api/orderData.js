@@ -28,4 +28,4 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default { getOrders, getSingleOrder };
+export { getOrders, getSingleOrder };

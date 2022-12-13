@@ -1,6 +1,6 @@
 import { showOrders } from '../pages/orders';
 import { signOut } from '../utils/auth';
-import getOrders from '../api/orderData';
+import { getOrders } from '../api/orderData';
 
 const navigationEvents = (user) => {
   // VIEW ALL ORDERS
