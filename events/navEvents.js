@@ -3,6 +3,7 @@ import { signOut } from '../utils/auth';
 import { getOrders } from '../api/orderData';
 import homeLoggedIn from '../pages/homeLoggedIn';
 import { clearDom } from '../utils/clearDom';
+import addOrderForm from '../components/forms/addOrderForm';
 
 const navigationEvents = (user) => {
   // BACK TO HOMELOGGEDIN
@@ -16,6 +17,12 @@ const navigationEvents = (user) => {
   document.querySelector('#all-orders')
     .addEventListener('click', () => {
       getOrders(user.uid).then(showOrders);
+    });
+
+  // CREATE NEW ORDER
+  document.querySelector('#create-order')
+    .addEventListener('click', () => {
+      addOrderForm(user.uid);
     });
 
   // LOGOUT BUTTON
