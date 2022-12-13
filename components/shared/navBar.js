@@ -4,7 +4,7 @@ const navBar = () => {
   const domString = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
       <div class="container-fluid">
-        <a class="navbar-brand title" href="#">Hip-Hop Pizza & Wangs - Serving The Block Since 96</a>
+        <a class="navbar-brand title" href="#" id="slogan">Hip-Hop Pizza & Wangs - Serving The Block Since 96</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
