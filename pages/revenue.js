@@ -23,6 +23,10 @@ const showRevenue = (array) => {
       </div>
     </div>
     `;
+    const totale = JSON.parse(revenue.total);
+    const justTheTip = JSON.parse(revenue.tip);
+    console.warn(typeof totale);
+    console.warn(typeof justTheTip);
   });
   renderToDOM('#cards-on-dom', domString);
 };
