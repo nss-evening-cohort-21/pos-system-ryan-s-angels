@@ -4,7 +4,7 @@ const endpoint = client.databaseURL;
 
 // GET ORDERS
 const getOrders = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders?orderBy="uid"&equalTo="${uid}".json`, {
+  fetch(`${endpoint}/orders.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -41,4 +41,4 @@ const createOrder = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, getSingleOrder, createOrder };
+export { getOrders, getSingleOrder };
