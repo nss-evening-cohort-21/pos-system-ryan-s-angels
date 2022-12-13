@@ -15,7 +15,7 @@ const getOrders = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// dede
+// GET SINGLE ORDER
 const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders/${firebaseKey}.json`, {
     method: 'GET',
@@ -28,6 +28,7 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// CREATE ORDER
 const createOrder = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
     method: 'POST',
