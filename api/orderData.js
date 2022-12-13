@@ -4,7 +4,7 @@ const endpoint = client.databaseURL;
 
 // GET ORDERS
 const getOrders = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/orders?orderBy="uid"&equalTo="${uid}".json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -15,7 +15,7 @@ const getOrders = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// GET SINGLE ORDER
+// dede
 const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders/${firebaseKey}.json`, {
     method: 'GET',
@@ -28,7 +28,31 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// CREATE ORDER
+const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const updateOrder = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 const createOrder = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
     method: 'POST',
@@ -42,4 +66,10 @@ const createOrder = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, getSingleOrder, createOrder };
+export {
+  getOrders,
+  getSingleOrder,
+  createOrder,
+  updateOrder,
+  deleteOrder
+};
