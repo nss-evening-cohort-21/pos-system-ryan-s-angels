@@ -41,4 +41,4 @@ const createOrder = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, getSingleOrder };
+export { getOrders, getSingleOrder, createOrder };
