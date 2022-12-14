@@ -61,6 +61,11 @@ const domEvents = (user) => {
     if (e.target.id.includes('go-to-payment-btn')) {
       closeOrderForm();
     }
+
+    // GET REVENUE
+    if (e.target.id.includes('see-revenue')) {
+      showRevenue();
+    }
   });
 };
 
