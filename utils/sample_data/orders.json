@@ -1,46 +1,51 @@
 {
   "-NIiXcYBc_oxqo3jjuSJ": {
+    "date_submitted": "",
     "order_name": "Dot",
     "order_status": "open",
     "phone_number": "437-413-5721",
     "email": "dbeall0@google.ru",
-    "type": "phone",
+    "order_type": "phone",
     "uid": "",
     "firebaseKey": "-NIiXcYBc_oxqo3jjuSJ"
   },
   "-NIiXcYEKLPdUoABl03K": {
+    "date_submitted": "",
     "order_name": "Herbie",
     "order_status": "open",
     "phone_number": "241-342-7856",
     "email": "hlarcier1@icio.us",
-    "type": "in-person",
+    "order_type": "in-person",
     "uid": "",
     "firebaseKey": "-NIiXcYEKLPdUoABl03K"
   },
   "-NIiXcYHI0ntXQocBAsm": {
+    "date_submitted": "",
     "order_name": "Piggy",
     "order_status": "open",
     "phone_number": "793-817-7804",
     "email": "prillstone2@seesaa.net",
-    "type": "phone",
+    "order_type": "phone",
     "uid": "",
     "firebaseKey": "-NIiXcYHI0ntXQocBAsm"
   },
   "-NIiXcYKR0fQbNti547S": {
+    "date_submitted": "",
     "order_name": "Janelle",
     "order_status": "open",
     "phone_number": "659-289-5474",
     "email": "jclewer3@i2i.jp",
-    "type": "phone",
+    "order_type": "phone",
     "uid": "",
     "firebaseKey": "-NIiXcYKR0fQbNti547S"
   },
   "-NIiXcYN0HH1wTTPF-fu": {
+    "date_submitted": "",
     "order_name": "Alyss",
     "order_status": "closed",
     "phone_number": "964-545-1755",
     "email": "arake4@parallels.com",
-    "type": "in-person",
+    "order_type": "in-person",
     "uid": "",
     "firebaseKey": "-NIiXcYN0HH1wTTPF-fu"
   }
