@@ -18,7 +18,7 @@ const domEvents = (user) => {
       getRevenue(user.uid).then(showRevenue);
     }
     // CLICK EVENT FOR VIEW ORDER DETAILS
-    if (e.target.id.includes('view-order-btn')) {
+    if (e.target.id.includes('view-items-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getOrderDetails(firebaseKey).then(viewOrderDetails);
       console.warn('You clicked the items button!');

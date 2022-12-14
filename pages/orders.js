@@ -6,6 +6,11 @@ const emptyOrders = () => {
   renderToDOM('#cards-on-dom', domString);
 };
 
+const emptyItems = () => {
+  const domString = '<h1>No Items</h1>';
+  renderToDOM('#cards-on-dom', domString);
+};
+
 const showOrders = (array) => {
   clearDom();
 
@@ -20,7 +25,7 @@ const showOrders = (array) => {
         <p class="card-text bold">${item.email}</p>
         <p class="card-text bold">${item.type}</p>
         <hr>
-        <i class="btn btn-success fas fa-eye" id="view-order-btn--${item.firebaseKey}"></i>
+        <i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
         <i class="fas fa-edit btn btn-info" id="update-order-btn--${item.firebaseKey}"></i>
         <i class="btn btn-danger fas fa-trash-alt" id="delete-order-btn--${item.firebaseKey}"></i>
       </div>
@@ -30,4 +35,4 @@ const showOrders = (array) => {
   renderToDOM('#cards-on-dom', domString);
 };
 
-export { emptyOrders, showOrders };
+export { emptyOrders, showOrders, emptyItems };

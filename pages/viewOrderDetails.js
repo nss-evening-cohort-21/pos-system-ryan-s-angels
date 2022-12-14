@@ -1,11 +1,11 @@
 import { clearDom } from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
-import { emptyOrders } from './orders';
+import { emptyItems } from './orders';
 
 const viewOrderDetails = (orderObject) => {
   clearDom();
   if (orderObject.itemsArray.length === 0) {
-    emptyOrders();
+    emptyItems();
   } else {
     const str = `
     <div class="view-author-books-container">
