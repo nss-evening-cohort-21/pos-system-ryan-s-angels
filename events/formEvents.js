@@ -20,7 +20,7 @@ const formEvents = (user) => {
         email: document.querySelector('#email').value,
         order_type: document.querySelector('#order-type').value,
         order_status: 'open',
-        dateSubmitted: currentDate,
+        date_submitted: currentDate,
         uid: user.uid,
       };
       createOrder(payload).then(({ name }) => {
