@@ -22,12 +22,12 @@ const closeOrderForm = (obj = {}) => {
       </div>
   `;
 
-  domString += `</select><button type="submit" class="btn btn-danger">Close Order
+  domString += `</select><button type="submit" class="btn btn-danger" id="see-revenue">Close Order
     </button></form>`;
 
   console.warn(obj.tip);
 
-  renderToDOM('#main-container', domString);
+  renderToDOM('#form-container', domString);
 };
 
 export default closeOrderForm;
