@@ -7,6 +7,7 @@ import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData'
 import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
 import { deleteItem } from '../api/itemData';
+import closeOrderForm from '../pages/closeOrder';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -54,6 +55,11 @@ const domEvents = (user) => {
     // ADD ITEM FORM
     if (e.target.id.includes('add-item-btn')) {
       addItemForm();
+    }
+
+    // CLOSE ORDER
+    if (e.target.id.includes('go-to-payment-btn')) {
+      closeOrderForm();
     }
   });
 };
