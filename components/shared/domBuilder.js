@@ -9,6 +9,7 @@ const domBuilder = () => {
   <div id="buttons"></div>
   <div id="cards-on-dom"></div>
   <div id="form-container"></div>
+  <div id="store"></div>
   <div id="view"></div>
   </div>`;
   renderToDOM('#app', domString);
