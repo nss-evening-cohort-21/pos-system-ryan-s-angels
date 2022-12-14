@@ -4,6 +4,7 @@ const clearDom = () => {
   document.querySelector('#buttons').innerHTML = '';
   document.querySelector('#cards-on-dom').innerHTML = '';
   document.querySelector('#view').innerHTML = '';
+  document.querySelector('#store').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
 };
 
@@ -14,6 +15,7 @@ const clearDomLogout = () => {
   document.querySelector('#buttons').innerHTML = '';
   document.querySelector('#cards-on-dom').innerHTML = '';
   document.querySelector('#view').innerHTML = '';
+  document.querySelector('#store').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
 };
 
