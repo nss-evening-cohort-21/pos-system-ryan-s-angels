@@ -1,10 +1,11 @@
-import { deleteOrder, getOrders } from '../api/orderData';
+import { getOrders, getSingleOrder } from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import { showOrders } from '../pages/orders';
 import getRevenue from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
+import { deleteItem } from '../api/itemData';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -24,19 +25,19 @@ const domEvents = (user) => {
       console.warn('You clicked the items button!');
     }
 
-    if (e.target.id.includes('delete-order-btn')) {
+    if (e.target.id.includes('delete-item-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
-        console.warn('CLICKED DELETE ORDER', e.target.id);
+        console.warn('CLICKED DELETE ITEM', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');
 
-        deleteOrder(firebaseKey).then(() => {
-          getOrders(user.uid).then(showOrders);
+        deleteItem(firebaseKey).then(() => {
+          getSingleOrder(user.uid).then();
         });
       }
     }
 
-    if (e.target.id.includes('delete-item-btn')) {
+    if (e.target.id.includes('delete-order-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         console.warn('DELETE Item', e.target.id);
