@@ -5,6 +5,7 @@ import getRevenue from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
+import addItemForm from '../components/forms/addItemForm';
 import { deleteItem } from '../api/itemData';
 
 const domEvents = (user) => {
@@ -48,6 +49,11 @@ const domEvents = (user) => {
           console.warn('DELETED');
         });
       }
+    }
+
+    // ADD ITEM FORM
+    if (e.target.id.includes('add-item-btn')) {
+      addItemForm();
     }
   });
 };
