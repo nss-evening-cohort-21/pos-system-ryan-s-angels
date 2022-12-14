@@ -19,8 +19,6 @@ const showRevenue = (array) => {
 
   domString = `
     Total Revenue: $${finalRevRounded}
-    <br>
-    Thanks for eating with us!
   `;
 
   renderToDOM('#cards-on-dom', domString);

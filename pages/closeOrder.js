@@ -3,12 +3,12 @@ import renderToDOM from '../utils/renderToDom';
 
 const paymentTypeArray = ['Cash', 'Credit', 'Mobile'];
 
-const closeOrderForm = (uid, obj = {}) => {
-  console.warn(uid);
+const closeOrderForm = (obj = {}) => {
   clearDom();
   let domString = `
-  <form id="close-order" class="mb-4">
-  `;
+  <label for="order-type">Payment Type</label>
+      <select class="form-select" id="payment-type" aria-label="Default select example" required>
+    `;
   paymentTypeArray.forEach((payment) => {
     domString += `
        <option 
@@ -22,8 +22,10 @@ const closeOrderForm = (uid, obj = {}) => {
       </div>
   `;
 
-  domString += `</select><button type="submit" class="btn btn-primary">Submit Word
+  domString += `</select><button type="submit" class="btn btn-danger">Close Order
     </button></form>`;
+
+  console.warn(obj.tip);
 
   renderToDOM('#main-container', domString);
 };
