@@ -3,7 +3,7 @@ import addOrderForm from '../components/forms/addOrderForm';
 import { showOrders } from '../pages/orders';
 import getRevenue from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
-import getOrderDetails, { deleteOrderItemRelationship } from '../api/mergedData';
+import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 
 const domEvents = (user) => {
