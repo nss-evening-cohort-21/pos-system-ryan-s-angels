@@ -5,6 +5,7 @@ import getRevenue from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
+import addItemForm from '../components/forms/addItemForm';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -47,6 +48,11 @@ const domEvents = (user) => {
           console.warn('DELETED');
         });
       }
+    }
+
+    // ADD ITEM FORM
+    if (e.target.id.includes('add-item-btn')) {
+      addItemForm();
     }
   });
 };
