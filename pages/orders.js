@@ -18,7 +18,7 @@ const showOrders = (array) => {
         <p class="card-text bold">${item.order_status}</p>
         <p class="card-text bold">${item.phone_number}</p>
         <p class="card-text bold">${item.email}</p>
-        <p class="card-text bold">${item.type}</p>
+        <p class="card-text bold">${item.order_type}</p>
         <hr>
         <i class="btn btn-success fas fa-eye" id="view-order-btn--${item.firebaseKey}"></i>
         <i class="fas fa-edit btn btn-info" id="update-order-btn--${item.firebaseKey}"></i>
