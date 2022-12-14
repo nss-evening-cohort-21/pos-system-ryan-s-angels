@@ -6,6 +6,10 @@ const viewOrderDetails = (orderObject) => {
   clearDom();
   if (orderObject.itemsArray.length === 0) {
     emptyItems();
+    const domString = `
+    <button id="add-item-btn" class="btn btn-success">Add Item</button>
+    <button id="go-to-payment-btn" class="btn btn-primary">Go to Payment</button>`;
+    renderToDOM('#store', domString);
   } else {
     const str = `
     <div class="view-orders-items-container">
@@ -25,7 +29,7 @@ const viewOrderDetails = (orderObject) => {
       <div class="card">
         <div class="card-body" style="height: 250px;">
           <h6 class="card-title">${item.itemName}</h6>
-          <p class="card-text bold">${item.itemPrice}}</p>
+          <p class="card-text bold">${item.itemPrice}</p>
           <hr>
           <div class="book-icons">
             <i id="edit-item-btn--${item.firebaseKey}"  class="btn btn-info">
@@ -38,6 +42,9 @@ const viewOrderDetails = (orderObject) => {
         </div>
       </div>`;
     });
+    domString += `
+    <button id="add-item-btn" class="btn btn-success">Add Item</button>
+    <button id="go-to-payment-btn" class="btn btn-primary">Go to Payment</button>`;
     renderToDOM('#itemCards', domString);
   }
 };
