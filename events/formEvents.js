@@ -1,5 +1,9 @@
-import { getOrders, createOrder, updateOrder } from '../api/orderData';
+import {
+  getOrders, createOrder, updateOrder
+} from '../api/orderData';
 import { showOrders } from '../pages/orders';
+import { getItems, updateItem, createItem } from '../api/itemData';
+import viewOrderDetails from '../pages/viewOrderDetails';
 
 // GET CURRENT DATE
 const date = new Date();
@@ -49,6 +53,20 @@ const formEvents = (user) => {
 
       updateOrder(payload).then(() => {
         getOrders(user.uid).then(showOrders);
+      });
+    }
+    // CLICK EVENT FOR ADDING AN ITEM
+    if (e.target.id.includes('submit-item')) {
+      const payload = {
+        itemName: document.querySelector('#item-name').value,
+        itemPrice: document.querySelector('#item-price').value,
+        uid: user.uid,
+      };
+      createItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateItem(patchPayload).then(() => {
+          getItems(user.uid).then(viewOrderDetails);
+        });
       });
     }
   });
