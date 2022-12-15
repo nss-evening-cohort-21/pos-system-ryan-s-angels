@@ -5,8 +5,10 @@ const paymentTypeArray = ['Cash', 'Credit', 'Mobile'];
 
 const closeOrderForm = (obj = {}) => {
   clearDom();
+  console.warn(obj);
   let domString = `
-  <label for="order-type">Time To Close Your Order!</label>
+  <form id="${obj.firebaseKey}" class="mb-4">
+  <label>Time To Close Your Order!</label>
       <select class="form-select" id="payment-type" aria-label="Default select example" required>
       <option>How Will You Be Paying Today?</option>
     `;
@@ -23,13 +25,10 @@ const closeOrderForm = (obj = {}) => {
     <div class="col-sm-10">
     <input type="number" class="form-control" id="tip" placeholder="Don't Be Cheap, Give Us a Tip!" value="${obj.tip || ''}" required>
     </div>
-        
   `;
 
-  domString += `</select><button type="submit" class="btn btn-danger" id="see-revenue">Close Order
+  domString += `</select><button type="submit" class="btn btn-danger" id="order-is-closed">Close Order
     </button></form>`;
-
-  console.warn(obj.tip);
 
   renderToDOM('#form-container', domString);
 };

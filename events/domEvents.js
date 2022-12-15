@@ -64,7 +64,7 @@ const domEvents = (user) => {
     }
 
     // GET REVENUE
-    if (e.target.id.includes('see-revenue')) {
+    if (e.target.id.includes('order-is-closed')) {
       homeLoggedIn(user);
     }
   });
