@@ -6,8 +6,9 @@ const paymentTypeArray = ['Cash', 'Credit', 'Mobile'];
 const closeOrderForm = (obj = {}) => {
   clearDom();
   let domString = `
-  <label for="order-type">Payment Type</label>
+  <label for="order-type">Time To Close Your Order!</label>
       <select class="form-select" id="payment-type" aria-label="Default select example" required>
+      <option>How Will You Be Paying Today?</option>
     `;
   paymentTypeArray.forEach((payment) => {
     domString += `
@@ -16,10 +17,13 @@ const closeOrderForm = (obj = {}) => {
   });
 
   domString += `
-  <div class="form-group">
-        <label for="just-the-tip">Tip</label>
-        <input type="number" class="form-control" id="tip" aria-describedby="wordTitle" placeholder="Don't Be Cheap!" value="${obj.tip || ''}" required>
-      </div>
+    <div class ="mb-3 row">
+        <label for="just-the-tip" class="form-label">Tip</label>
+    </div>
+    <div class="col-sm-10">
+    <input type="number" class="form-control" id="tip" placeholder="Don't Be Cheap, Give Us a Tip!" value="${obj.tip || ''}" required>
+    </div>
+        
   `;
 
   domString += `</select><button type="submit" class="btn btn-danger" id="see-revenue">Close Order
