@@ -18,7 +18,7 @@ const currentDate = `${month}-${day}-${year}`;
 const formEvents = (user) => {
   document.querySelector('#form-container').addEventListener('submit', (e) => {
     e.preventDefault();
-    // TODO: CLICK EVENT FOR SUBMITTING AN ORDER
+    // CLICK EVENT FOR SUBMITTING AN ORDER
     if (e.target.id.includes('submit-order')) {
       const payload = {
         order_name: document.querySelector('#order-name').value,
@@ -39,7 +39,7 @@ const formEvents = (user) => {
     // CLICK EVENT FOR EDITING AN ORDER
     if (e.target.id.includes('update-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      // console.warn('CLICKED UPDATE BOOK', e.target.id);
+      // console.warn('CLICKED UPDATE ORDER', e.target.id);
       // console.warn(firebaseKey);
 
       const payload = {
@@ -57,7 +57,7 @@ const formEvents = (user) => {
         getOrders(user.uid).then(showOrders);
       });
     }
-    
+
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
 
@@ -66,7 +66,7 @@ const formEvents = (user) => {
         tip: document.querySelector('#tip').value,
         orderType: document.querySelector('#order-type').value,
         order_status: 'Closed',
-        // total: order total plus tip,
+        // total: order items plus tip,
         date: currentDate,
         firebaseKey,
         uid: user.uid,
@@ -75,7 +75,8 @@ const formEvents = (user) => {
       updateRevenue(payload).then(() => {
         console.warn(payload);
         getRevenue(user.uid).then(showRevenue);
-
+      });
+    }
     // CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('submit-item')) {
       const payload = {
