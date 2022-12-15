@@ -1,7 +1,11 @@
-import { getOrders, createOrder, updateOrder } from '../api/orderData';
+import {
+  getOrders, createOrder, updateOrder
+} from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import { updateRevenue, getRevenue } from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
+import { getItems, updateItem, createItem } from '../api/itemData';
+import viewOrderDetails from '../pages/viewOrderDetails';
 
 // GET CURRENT DATE
 const date = new Date();
@@ -53,6 +57,7 @@ const formEvents = (user) => {
         getOrders(user.uid).then(showOrders);
       });
     }
+    
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
 
@@ -70,6 +75,19 @@ const formEvents = (user) => {
       updateRevenue(payload).then(() => {
         console.warn(payload);
         getRevenue(user.uid).then(showRevenue);
+
+    // CLICK EVENT FOR ADDING AN ITEM
+    if (e.target.id.includes('submit-item')) {
+      const payload = {
+        itemName: document.querySelector('#item-name').value,
+        itemPrice: document.querySelector('#item-price').value,
+        uid: user.uid,
+      };
+      createItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateItem(patchPayload).then(() => {
+          getItems(user.uid).then(viewOrderDetails);
+        });
       });
     }
   });
