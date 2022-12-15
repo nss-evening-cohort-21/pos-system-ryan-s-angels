@@ -2,6 +2,8 @@ import {
   getOrders, createOrder, updateOrder
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
+import { updateRevenue, getRevenue } from '../api/revenueData';
+import { showRevenue } from '../pages/revenue';
 import { getItems, updateItem, createItem } from '../api/itemData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 
@@ -55,6 +57,25 @@ const formEvents = (user) => {
         getOrders(user.uid).then(showOrders);
       });
     }
+    
+    if (e.target.id.includes('close-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      const payload = {
+        paymentType: document.querySelector('#payment-type').value,
+        tip: document.querySelector('#tip').value,
+        orderType: document.querySelector('#order-type').value,
+        order_status: 'Closed',
+        // total: order total plus tip,
+        date: currentDate,
+        firebaseKey,
+        uid: user.uid,
+      };
+
+      updateRevenue(payload).then(() => {
+        console.warn(payload);
+        getRevenue(user.uid).then(showRevenue);
+
     // CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('submit-item')) {
       const payload = {

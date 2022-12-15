@@ -1,13 +1,13 @@
 import { getOrders, getSingleOrder } from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import { showOrders } from '../pages/orders';
-import getRevenue from '../api/revenueData';
+import { getRevenue } from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
 import { deleteItem } from '../api/itemData';
-import closeOrderForm from '../pages/closeOrder';
+import closeOrderForm from '../components/forms/closeOrderForm';
 import homeLoggedIn from '../pages/homeLoggedIn';
 
 const domEvents = (user) => {
@@ -69,7 +69,7 @@ const domEvents = (user) => {
       closeOrderForm(user);
     }
 
-    // GET REVENUE
+    // CLOSE ORDER PT 2
     if (e.target.id.includes('order-is-closed')) {
       homeLoggedIn(user);
     }
