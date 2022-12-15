@@ -27,7 +27,13 @@ const domEvents = (user) => {
       getOrderDetails(firebaseKey).then(viewOrderDetails);
       console.warn('You clicked the items button!');
     }
+    // CLICK EVENT FOR EDITING AN ORDER
+    if (e.target.id.includes('edit-order-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
 
+      getSingleOrder(firebaseKey).then((orderObj) => addOrderForm(orderObj));
+      console.warn('You clicked the edit order button');
+    }
     if (e.target.id.includes('delete-item-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
