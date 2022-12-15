@@ -7,7 +7,7 @@ const orderTypeArray = ['phone', 'in-person'];
 const addOrderForm = (obj = {}) => {
   clearDom();
   let domString = `
-    <form id="${obj.firebaseKey ? `update-order-btn--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
+    <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
       <div class="form-group">
         <label for="order-name">Order Name</label>
         <input type="text" class="form-control" id="order-name" aria-describedby="orderName" placeholder="Enter Your Name" value="${obj.order_name || ''}" required>

@@ -30,6 +30,27 @@ const formEvents = (user) => {
         });
       });
     }
+    // CLICK EVENT FOR EDITING AN ORDER
+    if (e.target.id.includes('update-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      // console.warn('CLICKED UPDATE BOOK', e.target.id);
+      // console.warn(firebaseKey);
+
+      const payload = {
+        order_name: document.querySelector('#order-name').value,
+        phone_number: document.querySelector('#phone-number').value,
+        email: document.querySelector('#email').value,
+        order_type: document.querySelector('#order-type').value,
+        order_status: 'open',
+        date_submitted: currentDate,
+        firebaseKey,
+        uid: user.uid,
+      };
+
+      updateOrder(payload).then(() => {
+        getOrders(user.uid).then(showOrders);
+      });
+    }
   });
 };
 
