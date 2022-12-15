@@ -8,6 +8,7 @@ import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
 import { deleteItem } from '../api/itemData';
 import closeOrderForm from '../pages/closeOrder';
+import homeLoggedIn from '../pages/homeLoggedIn';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -64,7 +65,7 @@ const domEvents = (user) => {
 
     // GET REVENUE
     if (e.target.id.includes('see-revenue')) {
-      showRevenue();
+      homeLoggedIn(user);
     }
   });
 };
