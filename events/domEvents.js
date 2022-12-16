@@ -1,7 +1,7 @@
 import { getOrders, getSingleOrder } from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import { showOrders } from '../pages/orders';
-import getRevenue from '../api/revenueData';
+import { getRevenue } from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
@@ -76,10 +76,10 @@ const domEvents = (user) => {
 
     // CLOSE ORDER
     if (e.target.id.includes('go-to-payment-btn')) {
-      closeOrderForm();
+      closeOrderForm(user);
     }
 
-    // GET REVENUE
+    // CLOSE ORDER PT 2
     if (e.target.id.includes('order-is-closed')) {
       homeLoggedIn(user);
     }
