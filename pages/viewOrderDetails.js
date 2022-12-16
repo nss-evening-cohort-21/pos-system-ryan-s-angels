@@ -7,7 +7,7 @@ const viewOrderDetails = (orderObject) => {
   if (orderObject.itemsArray.length === 0) {
     emptyItems();
     const domString = `
-    <button id="add-item-btn" class="btn btn-success">Add Item</button>
+    <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
     <button id="go-to-payment-btn" class="btn btn-primary">Go to Payment</button>`;
     renderToDOM('#store', domString);
   } else {
@@ -43,7 +43,7 @@ const viewOrderDetails = (orderObject) => {
       </div>`;
     });
     domString += `
-    <button id="add-item-btn" class="btn btn-success">Add Item</button>
+    <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
     <button id="go-to-payment-btn" class="btn btn-primary">Go to Payment</button>`;
     renderToDOM('#itemCards', domString);
   }

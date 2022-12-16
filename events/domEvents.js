@@ -6,8 +6,10 @@ import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
-import { deleteItem } from '../api/itemData';
-import closeOrderForm from '../components/forms/closeOrderForm';
+import {
+  createItem, deleteItem, getSingleItem, updateItem
+} from '../api/itemData';
+import closeOrderForm from '../pages/closeOrder';
 import homeLoggedIn from '../pages/homeLoggedIn';
 
 const domEvents = (user) => {
@@ -61,7 +63,15 @@ const domEvents = (user) => {
 
     // ADD ITEM FORM
     if (e.target.id.includes('add-item-btn')) {
-      addItemForm();
+      const [, firebaseKey] = e.target.id.split('--');
+      const patchPayload = { orderId: firebaseKey };
+      createItem(patchPayload).then(() => {
+        getSingleItem(patchPayload).then((payload) => {
+          updateItem(payload).then((item) => {
+            addItemForm(item);
+          });
+        });
+      });
     }
 
     // CLOSE ORDER
