@@ -16,7 +16,7 @@ const addItemForm = (obj = {}, orderId) => {
       </div>
       <button type="submit" class="btn btn-primary">Submit Item
       </button>
-      <input type="hidden" id="order_id" value="${obj.orderId ? obj.orderId : orderId}"></input>
+      <input type="hidden" id="order-id" value="${obj.orderId ? obj.orderId : orderId}"></input>
     </form>`;
 
   renderToDOM('#form-container', domString);

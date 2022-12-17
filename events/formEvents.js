@@ -1,10 +1,11 @@
 import {
-  getOrders, createOrder, updateOrder, getSingleOrder
+  getOrders, createOrder, updateOrder
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import { updateRevenue, getRevenue } from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
 import { updateItem, createItem } from '../api/itemData';
+import { getOrderDetails } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 
 // GET CURRENT DATE
@@ -63,20 +64,31 @@ const formEvents = (user) => {
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
 
-      const payload = {
+      const revenuePayload = {
         paymentType: document.querySelector('#payment-type').value,
         tip: document.querySelector('#tip').value,
-        orderType: document.querySelector('#order-type').value,
-        order_status: 'Closed',
         // total: order items plus tip,
         date: currentDate,
         firebaseKey,
         uid: user.uid,
       };
 
-      updateRevenue(payload).then(() => {
-        console.warn(payload);
+      updateRevenue(revenuePayload).then(() => {
+        console.warn(revenuePayload);
         getRevenue(user.uid).then(showRevenue);
+      });
+
+      // clean data up what was paid when
+      // calculate order total at time order is created
+      // const order payload order status closed
+      // call update order
+
+      const orderPayload = {
+        order_status: 'Closed',
+      };
+
+      updateOrder(orderPayload).then(() => {
+        getOrders(user.uid).then(showOrders);
       });
     }
     // CLICK EVENT FOR ADDING AN ITEM
@@ -85,14 +97,14 @@ const formEvents = (user) => {
       const payload = {
         itemName: document.querySelector('#item-name').value,
         itemPrice: document.querySelector('#item-price').value,
-        orderId: document.querySelector('#order_id').value,
+        orderId: document.querySelector('#order-id').value,
         uid: user.uid,
       };
       console.warn(payload);
       createItem(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateItem(patchPayload).then(() => {
-          getSingleOrder(payload.orderId).then(viewOrderDetails);
+          getOrderDetails(payload.orderId).then(viewOrderDetails);
         });
       });
     }
@@ -108,7 +120,7 @@ const formEvents = (user) => {
       };
 
       updateItem(payload).then(() => {
-        getSingleOrder(payload.orderId).then(viewOrderDetails);
+        getOrderDetails(payload.orderId).then(viewOrderDetails);
       });
     }
   });
