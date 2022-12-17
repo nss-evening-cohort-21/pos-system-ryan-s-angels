@@ -28,7 +28,7 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
@@ -83,6 +83,6 @@ export {
   getSingleOrder,
   createOrder,
   updateOrder,
-  deleteOrder,
+  deleteSingleOrder,
   getOrderItems
 };
