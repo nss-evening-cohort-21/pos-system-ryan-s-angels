@@ -2,7 +2,7 @@ import { clearDom } from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 
 // USING THIS FORM FOR BOTH CREATE AND UPDATE
-const addItemForm = (obj) => {
+const addItemForm = (obj = {}, orderId) => {
   clearDom();
   const domString = `
     <form id="${obj.firebaseKey ? `update-item-btn--${obj.firebaseKey}` : 'submit-item'}" class="mb-4">
@@ -16,6 +16,7 @@ const addItemForm = (obj) => {
       </div>
       <button type="submit" class="btn btn-primary">Submit Item
       </button>
+      <input type="hidden" id="order_id" value="${obj.orderId ? obj.orderId : orderId}"></input>
     </form>`;
 
   renderToDOM('#form-container', domString);
