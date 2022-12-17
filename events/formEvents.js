@@ -2,6 +2,8 @@ import {
   getOrders, createOrder, updateOrder, getSingleOrder
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
+import { updateRevenue, getRevenue } from '../api/revenueData';
+import { showRevenue } from '../pages/revenue';
 import { updateItem, createItem } from '../api/itemData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 
@@ -16,7 +18,7 @@ const currentDate = `${month}-${day}-${year}`;
 const formEvents = (user) => {
   document.querySelector('#form-container').addEventListener('submit', (e) => {
     e.preventDefault();
-    // TODO: CLICK EVENT FOR SUBMITTING AN ORDER
+    // CLICK EVENT FOR SUBMITTING AN ORDER
     if (e.target.id.includes('submit-order')) {
       const payload = {
         order_name: document.querySelector('#order-name').value,
@@ -37,7 +39,7 @@ const formEvents = (user) => {
     // CLICK EVENT FOR EDITING AN ORDER
     if (e.target.id.includes('update-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      // console.warn('CLICKED UPDATE BOOK', e.target.id);
+      // console.warn('CLICKED UPDATE ORDER', e.target.id);
       // console.warn(firebaseKey);
 
       const payload = {
@@ -53,6 +55,26 @@ const formEvents = (user) => {
 
       updateOrder(payload).then(() => {
         getOrders(user.uid).then(showOrders);
+      });
+    }
+
+    if (e.target.id.includes('close-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      const payload = {
+        paymentType: document.querySelector('#payment-type').value,
+        tip: document.querySelector('#tip').value,
+        orderType: document.querySelector('#order-type').value,
+        order_status: 'Closed',
+        // total: order items plus tip,
+        date: currentDate,
+        firebaseKey,
+        uid: user.uid,
+      };
+
+      updateRevenue(payload).then(() => {
+        console.warn(payload);
+        getRevenue(user.uid).then(showRevenue);
       });
     }
     // CLICK EVENT FOR ADDING AN ITEM
