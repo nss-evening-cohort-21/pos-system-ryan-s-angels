@@ -61,20 +61,31 @@ const formEvents = (user) => {
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
 
-      const payload = {
+      const revenuePayload = {
         paymentType: document.querySelector('#payment-type').value,
         tip: document.querySelector('#tip').value,
-        orderType: document.querySelector('#order-type').value,
-        order_status: 'Closed',
         // total: order items plus tip,
         date: currentDate,
         firebaseKey,
         uid: user.uid,
       };
 
-      updateRevenue(payload).then(() => {
-        console.warn(payload);
+      updateRevenue(revenuePayload).then(() => {
+        console.warn(revenuePayload);
         getRevenue(user.uid).then(showRevenue);
+      });
+
+      // clean data up what was paid when
+      // calculate order total at time order is created
+      // const order payload order status closed
+      // call update order
+
+      const orderPayload = {
+        order_status: 'Closed',
+      };
+
+      updateOrder(orderPayload).then(() => {
+        getOrders(user.uid).then(showOrders);
       });
     }
     // CLICK EVENT FOR ADDING AN ITEM
