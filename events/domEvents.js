@@ -9,7 +9,7 @@ import addItemForm from '../components/forms/addItemForm';
 import {
   createItem, deleteItem, getSingleItem, updateItem
 } from '../api/itemData';
-import closeOrderForm from '../pages/closeOrder';
+// import closeOrderForm from '../pages/closeOrder';
 import homeLoggedIn from '../pages/homeLoggedIn';
 
 const domEvents = (user) => {
@@ -75,9 +75,9 @@ const domEvents = (user) => {
     }
 
     // CLOSE ORDER
-    if (e.target.id.includes('go-to-payment-btn')) {
-      closeOrderForm(user);
-    }
+    // if (e.target.id.includes('go-to-payment-btn')) {
+    //   closeOrderForm(user);
+    // }
 
     // CLOSE ORDER PT 2
     if (e.target.id.includes('order-is-closed')) {
