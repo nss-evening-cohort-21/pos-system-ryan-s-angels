@@ -40,7 +40,7 @@ const domEvents = (user) => {
         const [, firebaseKey] = e.target.id.split('--');
 
         deleteItem(firebaseKey).then(() => {
-          getSingleOrder(user.uid).then();
+          getOrderDetails(firebaseKey).then(viewOrderDetails);
         });
       }
     }
