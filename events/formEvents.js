@@ -1,10 +1,11 @@
 import {
-  getOrders, createOrder, updateOrder, getSingleOrder
+  getOrders, createOrder, updateOrder
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import { updateRevenue, getRevenue } from '../api/revenueData';
 import { showRevenue } from '../pages/revenue';
 import { updateItem, createItem } from '../api/itemData';
+import { getOrderDetails } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 
 // GET CURRENT DATE
@@ -93,14 +94,14 @@ const formEvents = (user) => {
       const payload = {
         itemName: document.querySelector('#item-name').value,
         itemPrice: document.querySelector('#item-price').value,
-        orderId: document.querySelector('#order_id').value,
+        orderId: document.querySelector('#order-id').value,
         uid: user.uid,
       };
       console.warn(payload);
       createItem(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateItem(patchPayload).then(() => {
-          getSingleOrder(payload.orderId).then(viewOrderDetails);
+          getOrderDetails(payload.orderId).then(viewOrderDetails);
         });
       });
     }
