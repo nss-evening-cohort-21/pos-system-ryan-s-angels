@@ -93,7 +93,7 @@ const formEvents = (user) => {
       const payload = {
         itemName: document.querySelector('#item-name').value,
         itemPrice: document.querySelector('#item-price').value,
-        orderId: document.querySelector('#order_id').value,
+        orderId: document.querySelector('#order-id').value,
         uid: user.uid,
       };
       console.warn(payload);
