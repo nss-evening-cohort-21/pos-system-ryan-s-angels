@@ -7,7 +7,7 @@ import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData'
 import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
 import { deleteItem } from '../api/itemData';
-import closeOrderForm from '../pages/closeOrder';
+import closeOrderForm from '../components/forms/closeOrderForm';
 import homeLoggedIn from '../pages/homeLoggedIn';
 
 const domEvents = (user) => {
