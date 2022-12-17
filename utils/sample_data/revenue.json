@@ -5,7 +5,6 @@
     "date":"10/22/2022",
     "tip": 3.85,
     "paymentType": "Cash",
-    "orderType":"Call In",
     "total": 26.85
   },
   "-NJ8T6xJN4PtOet-vDWm":{
@@ -14,7 +13,6 @@
     "date":"11/3/2022",
     "tip": 7.26,
     "paymentType": "Credit",
-    "orderType":"Walk In",
     "total": 31.02
   },
   "-NJ8T6xMsQdffbWpUadC":{
@@ -23,7 +21,6 @@
     "date":"12/8/2022",
     "tip": 4.02,
     "paymentType": "Cash",
-    "orderType":"Walk In",
     "total": 73.97
   },
   "-NJ8T6xOalgc0iKgT091":{
@@ -32,7 +29,6 @@
     "date":"1/12/2022",
     "tip": 12.48,
     "paymentType": "Mobile",
-    "orderType":"Online",
     "total": 80.98
   },
   "-NJ8T6xQ3Us7v-zTmkqw":{
@@ -41,7 +37,6 @@
     "date":"2/1/2022",
     "tip": 9.45,
     "paymentType": "Credit",
-    "orderType":"Call In",
     "total": 64.69
   }
 }

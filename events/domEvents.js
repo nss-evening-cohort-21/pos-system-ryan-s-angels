@@ -6,11 +6,8 @@ import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
-import {
-  createItem, deleteItem, getSingleItem, updateItem
-} from '../api/itemData';
-// import closeOrderForm from '../pages/closeOrder';
-import homeLoggedIn from '../pages/homeLoggedIn';
+import { deleteItem } from '../api/itemData';
+import closeOrderForm from '../components/forms/closeOrderForm';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -64,24 +61,12 @@ const domEvents = (user) => {
     // ADD ITEM FORM
     if (e.target.id.includes('add-item-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      const patchPayload = { orderId: firebaseKey };
-      createItem(patchPayload).then(() => {
-        getSingleItem(patchPayload).then((payload) => {
-          updateItem(payload).then((item) => {
-            addItemForm(item);
-          });
-        });
-      });
+      addItemForm({}, firebaseKey);
     }
 
     // CLOSE ORDER
-    // if (e.target.id.includes('go-to-payment-btn')) {
-    //   closeOrderForm(user);
-    // }
-
-    // CLOSE ORDER PT 2
-    if (e.target.id.includes('order-is-closed')) {
-      homeLoggedIn(user);
+    if (e.target.id.includes('go-to-payment-btn')) {
+      closeOrderForm(user);
     }
   });
 };
