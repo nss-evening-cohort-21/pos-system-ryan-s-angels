@@ -11,7 +11,12 @@ const showRevenue = (array) => {
   let domString = '';
   let finalRev = 0;
   array.forEach((revenue) => {
-    const totale = JSON.parse(revenue.total);
+    let totale = null;
+    if (typeof revenue.total === 'string') {
+      totale = JSON.parse(revenue.total);
+    } else if (Number.isFinite(revenue.total)) {
+      totale = revenue.total;
+    }
     finalRev += totale;
   });
   const finalRevRounded = Math.round(finalRev * 100) / 100;
