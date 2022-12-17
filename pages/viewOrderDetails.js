@@ -4,7 +4,7 @@ import { emptyItems } from './orders';
 
 const viewOrderDetails = (orderObject) => {
   clearDom();
-  if (orderObject.itemsArray.length === 0) {
+  if (!orderObject.itemsArray) {
     emptyItems();
     const domString = `
     <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
