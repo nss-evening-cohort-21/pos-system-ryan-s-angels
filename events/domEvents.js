@@ -6,7 +6,7 @@ import { showRevenue } from '../pages/revenue';
 import { getOrderDetails, deleteOrderItemRelationship } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
-import { deleteItem } from '../api/itemData';
+import { deleteItem, getSingleItem } from '../api/itemData';
 import closeOrderForm from '../components/forms/closeOrderForm';
 
 const domEvents = (user) => {
@@ -56,6 +56,14 @@ const domEvents = (user) => {
           console.warn('DELETED');
         });
       }
+    }
+
+    // CLICK EVENT FOR EDITING AN ITEM
+    if (e.target.id.includes('edit-item-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getSingleItem(firebaseKey).then((itemObj) => addItemForm(itemObj));
+      console.warn('You clicked the edit item button');
     }
 
     // ADD ITEM FORM

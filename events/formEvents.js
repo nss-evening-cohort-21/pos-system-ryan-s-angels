@@ -59,6 +59,8 @@ const formEvents = (user) => {
       });
     }
 
+    // CLICK EVENT FOR CLOSING AN ORDER
+
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
 
@@ -90,6 +92,7 @@ const formEvents = (user) => {
       });
     }
     // CLICK EVENT FOR ADDING AN ITEM
+
     if (e.target.id.includes('submit-item')) {
       const payload = {
         itemName: document.querySelector('#item-name').value,
@@ -103,6 +106,21 @@ const formEvents = (user) => {
         updateItem(patchPayload).then(() => {
           getOrderDetails(payload.orderId).then(viewOrderDetails);
         });
+      });
+    }
+
+    // CLICK EVENT FOR EDITING AN ITEM
+
+    if (e.target.id.includes('update-item')) {
+      const payload = {
+        itemName: document.querySelector('#item-name').value,
+        itemPrice: document.querySelector('#item-price').value,
+        orderId: document.querySelector('#order_id').value,
+        uid: user.uid,
+      };
+
+      updateItem(payload).then(() => {
+        getOrderDetails(payload.orderId).then(viewOrderDetails);
       });
     }
   });
