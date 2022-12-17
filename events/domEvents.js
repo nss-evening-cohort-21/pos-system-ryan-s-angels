@@ -8,7 +8,6 @@ import viewOrderDetails from '../pages/viewOrderDetails';
 import addItemForm from '../components/forms/addItemForm';
 import { deleteItem } from '../api/itemData';
 import closeOrderForm from '../components/forms/closeOrderForm';
-import homeLoggedIn from '../pages/homeLoggedIn';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -67,11 +66,6 @@ const domEvents = (user) => {
     // CLOSE ORDER
     if (e.target.id.includes('go-to-payment-btn')) {
       closeOrderForm(user);
-    }
-
-    // CLOSE ORDER PT 2
-    if (e.target.id.includes('order-is-closed')) {
-      homeLoggedIn(user);
     }
   });
 };
