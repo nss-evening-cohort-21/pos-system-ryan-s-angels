@@ -112,15 +112,16 @@ const formEvents = (user) => {
     // CLICK EVENT FOR EDITING AN ITEM
 
     if (e.target.id.includes('update-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
       const payload = {
         itemName: document.querySelector('#item-name').value,
         itemPrice: document.querySelector('#item-price').value,
-        orderId: document.querySelector('#order_id').value,
-        uid: user.uid,
+        firebaseKey,
       };
 
       updateItem(payload).then(() => {
-        getOrderDetails(payload.orderId).then(viewOrderDetails);
+        getOrderDetails(user.uid).then(viewOrderDetails);
       });
     }
   });
