@@ -2,9 +2,9 @@ import { clearDom } from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 import { emptyItems } from './orders';
 
-const viewOrderDetails = (orderObject) => {
+const viewOrderDetails = (orderObject, orderItems) => {
   clearDom();
-  if (!orderObject.itemsArray) {
+  if (!orderItems.itemsArray) {
     emptyItems();
     const domString = `
     <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
@@ -24,7 +24,7 @@ const viewOrderDetails = (orderObject) => {
     </div>`;
     renderToDOM('#store', str);
     let domString = '';
-    orderObject.itemsArray.forEach((item) => {
+    orderItems.itemsArray.forEach((item) => {
       domString += `
       <div class="card">
         <div class="card-body" style="height: 250px;">
