@@ -1,5 +1,5 @@
 import {
-  getOrders, createOrder, updateOrder
+  getOrders, createOrder, updateOrder, getSingleOrder
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import { updateRevenue, getRevenue } from '../api/revenueData';
@@ -104,7 +104,11 @@ const formEvents = (user) => {
       createItem(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateItem(patchPayload).then(() => {
-          getOrderDetails(payload.orderId).then(viewOrderDetails);
+          getOrderDetails(payload.orderId).then((itemArray) => {
+            getSingleOrder(payload.orderId).then((orderObj) => {
+              viewOrderDetails(orderObj, itemArray);
+            });
+          });
         });
       });
     }

@@ -23,7 +23,11 @@ const domEvents = (user) => {
     // CLICK EVENT FOR VIEW ORDER DETAILS
     if (e.target.id.includes('view-items-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getOrderDetails(firebaseKey).then(viewOrderDetails);
+      getOrderDetails(firebaseKey).then((orderItems) => {
+        getSingleOrder(firebaseKey).then((orderObject) => {
+          viewOrderDetails(orderObject, orderItems);
+        });
+      });
       console.warn('You clicked the items button!');
     }
     // CLICK EVENT FOR EDITING AN ORDER
@@ -38,9 +42,14 @@ const domEvents = (user) => {
       if (window.confirm('Want to delete?')) {
         console.warn('CLICKED DELETE ITEM', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');
-
-        deleteItem(firebaseKey).then(() => {
-          getOrderDetails(firebaseKey).then(viewOrderDetails);
+        getSingleItem(firebaseKey).then((item) => {
+          getSingleOrder(item.orderId).then((order) => {
+            deleteItem(firebaseKey).then(() => {
+              getOrderDetails(order.firebaseKey).then((orderItems) => {
+                viewOrderDetails(order, orderItems);
+              });
+            });
+          });
         });
       }
     }
