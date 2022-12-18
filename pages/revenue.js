@@ -8,22 +8,21 @@ const emptyRevenue = () => {
 
 const showRevenue = (array) => {
   clearDom();
-  let domString = '';
-  let finalRev = 0;
-  array.forEach((revenue) => {
-    let totale = null;
-    if (typeof revenue.total === 'string') {
-      totale = JSON.parse(revenue.total);
-    } else if (Number.isFinite(revenue.total)) {
-      totale = revenue.total;
-    }
-    finalRev += totale;
-  });
-  const finalRevRounded = Math.round(finalRev * 100) / 100;
-  console.warn(finalRevRounded);
+  // let domString = '';
+  // let finalRev = 0;
+  // array.forEach((revenue) => {
+  //   let totale = null;
+  //   if (typeof revenue.total === 'string') {
+  //     totale = JSON.parse(revenue.total);
+  //   } else if (Number.isFinite(revenue.total)) {
+  //     totale = revenue.total;
+  //   }
+  //   finalRev += totale;
+  // });
+  // const finalRevRounded = Math.round(finalRev * 100) / 100;
 
-  domString = `
-    Total Revenue: $${finalRevRounded}
+  const domString = `
+    Total Revenue: $${array.allTheRevenue}
   `;
 
   renderToDOM('#cards-on-dom', domString);

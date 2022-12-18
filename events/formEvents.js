@@ -2,11 +2,11 @@ import {
   getOrders, createOrder, updateOrder
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
-import { updateRevenue, getRevenue } from '../api/revenueData';
-import { showRevenue } from '../pages/revenue';
+import { updateRevenue, getRevenue, createRevenue } from '../api/revenueData';
 import { updateItem, createItem } from '../api/itemData';
 import { getOrderDetails } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
+import homeLoggedIn from '../pages/homeLoggedIn';
 
 // GET CURRENT DATE
 const date = new Date();
@@ -73,15 +73,12 @@ const formEvents = (user) => {
         uid: user.uid,
       };
 
-      updateRevenue(revenuePayload).then(() => {
-        console.warn(revenuePayload);
-        getRevenue(user.uid).then(showRevenue);
+      createRevenue(revenuePayload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateRevenue(patchPayload).then(() => {
+          getRevenue(user.uid).then(homeLoggedIn);
+        });
       });
-
-      // clean data up what was paid when
-      // calculate order total at time order is created
-      // const order payload order status closed
-      // call update order
 
       const orderPayload = {
         order_status: 'Closed',
