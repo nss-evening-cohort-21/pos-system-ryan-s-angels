@@ -4,7 +4,7 @@ const welcome = (user) => {
   const domString = `
   <h1>Welcome, ${user.displayName}</h1>
   <br>
-  <img src="https://cdn11.bigcommerce.com/s-ykmi7b5yqv/product_images/uploaded_images/pizza-peel-in-brick-oven-1200.jpeg" alt="delicious pizza in wood fired oven" width="40%" height="40%">
+  <img src ="https://www.musicianwave.com/wp-content/uploads/2022/04/Best-Female-DJs-in-the-World-788x525.jpg" width="50%" height="50%" alt="dj moving the crowd">
   <br><br>
   `;
 

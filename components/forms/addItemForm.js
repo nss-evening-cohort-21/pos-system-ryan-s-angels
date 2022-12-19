@@ -17,7 +17,9 @@ const addItemForm = (obj = {}, orderId) => {
       <button type="submit" class="btn btn-primary">Submit Item
       </button>
       <input type="hidden" id="order-id" value="${obj.orderId ? obj.orderId : orderId}"></input>
-    </form>`;
+    </form>
+    <img src="https://cdn.vox-cdn.com/thumbor/GYdRL8e7FhNWLNPor2V2I5Hi4gM=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22493535/GettyImages_185274327.jpg" class="sidepic" alt="delicious chicken wings">
+    `;
 
   renderToDOM('#form-container', domString);
 };
