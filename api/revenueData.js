@@ -14,9 +14,13 @@ const getRevenue = (uid) => new Promise((resolve, reject) => {
     .then((data) => {
       if (data) {
         const revenueArray = Object.values(data);
+        console.warn(revenueArray);
         const allTheTotals = revenueArray.map((item) => Number(item.total)).reduce((a, b) => a + b, 0);
+        console.warn(allTheTotals);
         const allTheTips = revenueArray.map((item) => Number(item.tip)).reduce((a, b) => a + b, 0);
+        console.warn(allTheTips);
         const allTheRevenue = allTheTotals + allTheTips;
+        console.warn(allTheRevenue);
         resolve(allTheRevenue);
       } else {
         resolve([]);
