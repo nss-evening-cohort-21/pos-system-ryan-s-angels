@@ -44,6 +44,22 @@ h5, h6 {
 
 #order-name, #phone-number, #email, #order-type, #item-name, #item-price, #order-is-closed, #tip, #payment-type {
   font-size: 18pt;
+
 } 
 
-a[href^="mailto"] { color: rgb(219, 219, 47); }
+a[href^="mailto"] { 
+  color: rgb(219, 219, 47); 
+}
+
+form {
+  width: 40vw;
+  height: 100px;
+  margin-left: 50px;
+  float: left;
+}
+
+.sidepic {
+  float: right;
+  margin-left: 50px;
+  width: 50vw;
+}

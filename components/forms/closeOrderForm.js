@@ -25,6 +25,7 @@ const closeOrderForm = (obj = {}) => {
     <div class="col-sm-10">
     <input type="number" class="form-control" id="tip" placeholder="Don't Be Cheap, Give Us a Tip!" value="${obj.tip || ''}" required>
     </div>
+    <br><br>
   `;
 
   domString += `</select><button type="submit" class="btn btn-danger" id="order-is-closed">Close Order
