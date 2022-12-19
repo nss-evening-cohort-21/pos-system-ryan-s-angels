@@ -23,11 +23,11 @@ const showRevenue = (array) => {
 
   const domString = `
     <div class="revTot">
-      Total Revenue: $${array.allTheRevenue}
+      Total Revenue: $${array.toFixed(2)}
     </div>
-    <img src="https://i.pinimg.com/564x/7c/4f/41/7c4f4120d5520493456f3ae24cece9c2.jpg" alt="breakdancing" width="50%" height="50%">"
+    <img src="https://i.pinimg.com/564x/7c/4f/41/7c4f4120d5520493456f3ae24cece9c2.jpg" alt="breakdancing" class="sidepic" width="50%" height="50%">"
   `;
-  console.warn(array.allTheRevenue);
+  console.warn(array);
 
   renderToDOM('#cards-on-dom', domString);
 };
