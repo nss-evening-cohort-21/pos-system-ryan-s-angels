@@ -20,7 +20,7 @@ const viewOrderDetails = (orderObject, orderItems) => {
         </div>
         <hr>
       </div>
-      <div class="author-books-cards" id="itemCards"></div>
+      <div class="item-cards" id="itemCards"></div>
     </div>`;
     renderToDOM('#store', str);
     let domString = '';
@@ -31,7 +31,7 @@ const viewOrderDetails = (orderObject, orderItems) => {
           <h6 class="card-title">${item.itemName}</h6>
           <p class="card-text bold">${item.itemPrice}</p>
           <hr>
-          <div class="book-icons">
+          <div class="item-icons">
             <i id="edit-item-btn--${item.firebaseKey}"  class="btn btn-info">
               <span><i class= "fas fa-edit"></i></span>
             </i>

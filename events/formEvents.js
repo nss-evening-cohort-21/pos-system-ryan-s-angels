@@ -64,10 +64,14 @@ const formEvents = (user) => {
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
 
+      const fatStacks = (array) => {
+        getRevenue(array.allTheRevenue);
+      };
+
       const revenuePayload = {
         paymentType: document.querySelector('#payment-type').value,
         tip: document.querySelector('#tip').value,
-        // total: order items plus tip,
+        total: fatStacks,
         date: currentDate,
         firebaseKey,
         uid: user.uid,

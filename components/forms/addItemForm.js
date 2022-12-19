@@ -8,7 +8,7 @@ const addItemForm = (obj = {}, orderId) => {
     <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="mb-4">
       <div class="form-group">
         <label for="item-name">Item Name</label>
-        <input type="text" class="form-control" id="item-name" aria-describedby="itemName" placeholder="Enter Your Name" value="${obj.itemName || ''}" required>
+        <input type="text" class="form-control" id="item-name" aria-describedby="itemName" placeholder="Item Name" value="${obj.itemName || ''}" required>
       </div>
       <div class="form-group">
         <label for="item-price">Item Price</label>
