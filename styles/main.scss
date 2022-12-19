@@ -1,10 +1,49 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: rgb(230, 109, 61);
+  color: rgb(245, 239, 239);
   text-align: center;
   margin-top: 100px;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 20pt;
 }
+
+#navbarText, #slogan, form {
+  font-size: 22pt;
+}
+
+.container-fluid {
+  background-color: rgb(162, 133, 95);
+}
+
+.btn {
+  font-size: 16pt;
+}
+
+h5, h6 {
+  font-size: 22pt;
+}
+
+.card, .card-body, .card-title {
+  font-size: 22pt;
+  background-color: brown; 
+}
+
+#cards-on-dom {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+}
+
+#order-name, #phone-number, #email, #order-type, #item-name, #item-price, #order-is-closed, #tip, #payment-type {
+  font-size: 18pt;
+} 
+
+a[href^="mailto"] { color: rgb(219, 219, 47); }

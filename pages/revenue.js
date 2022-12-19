@@ -24,6 +24,7 @@ const showRevenue = (array) => {
   const domString = `
     Total Revenue: $${array.allTheRevenue}
   `;
+  console.warn(array.allTheRevenue);
 
   renderToDOM('#cards-on-dom', domString);
 };
