@@ -22,9 +22,10 @@ const showRevenue = (array) => {
   // const finalRevRounded = Math.round(finalRev * 100) / 100;
 
   const domString = `
-    Total Revenue: $${array.allTheRevenue}
-   &ensp; &ensp;
-    <img src="https://i.pinimg.com/564x/7c/4f/41/7c4f4120d5520493456f3ae24cece9c2.jpg"alt="breakdancing" width="50%" height="50%">"
+    <div class="revTot">
+      Total Revenue: $${array.allTheRevenue}
+    </div>
+    <img src="https://i.pinimg.com/564x/7c/4f/41/7c4f4120d5520493456f3ae24cece9c2.jpg" alt="breakdancing" width="50%" height="50%">"
   `;
   console.warn(array.allTheRevenue);
 
