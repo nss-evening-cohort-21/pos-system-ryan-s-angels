@@ -13,7 +13,7 @@ const emptyItems = () => {
 
 const showOrders = (array) => {
   clearDom();
-
+  console.warn(array);
   let domString = '';
   array.forEach((item) => {
     domString += `
@@ -27,7 +27,7 @@ const showOrders = (array) => {
         <hr>
         <i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
         <i class="fas fa-edit btn btn-info" id="edit-order-btn--${item.firebaseKey}"></i>
-        <i class="btn btn-danger fas fa-trash-alt" id="delete-order-btn--${item.firebaseKey}"></i>
+        <i class="btn btn-light fas fa-trash-alt" id="delete-order-btn--${item.firebaseKey}"></i>
       </div>
     </div>
     `;

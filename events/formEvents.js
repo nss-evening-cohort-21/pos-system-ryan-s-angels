@@ -3,7 +3,7 @@ import {
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import { updateRevenue, getRevenue, createRevenue } from '../api/revenueData';
-import { updateItem, createItem, getSingleItem } from '../api/itemData';
+import { updateItem, createItem } from '../api/itemData';
 import { getOrderDetails } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 import homeLoggedIn from '../pages/homeLoggedIn';
@@ -64,14 +64,10 @@ const formEvents = (user) => {
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
 
-      const fatStacks = (array) => {
-        getRevenue(array.allTheRevenue);
-      };
-
       const revenuePayload = {
         paymentType: document.querySelector('#payment-type').value,
         tip: document.querySelector('#tip').value,
-        total: fatStacks,
+        // total: order items plus tip,
         date: currentDate,
         firebaseKey,
         uid: user.uid,
@@ -124,15 +120,9 @@ const formEvents = (user) => {
         itemPrice: document.querySelector('#item-price').value,
         firebaseKey,
       };
+
       updateItem(payload).then(() => {
-        // eslint-disable-next-line no-shadow
-        getSingleItem(firebaseKey).then((payload) => {
-          getOrderDetails(payload.orderId).then((itemArray) => {
-            getSingleOrder(payload.orderId).then((orderObj) => {
-              viewOrderDetails(orderObj, itemArray);
-            });
-          });
-        });
+        getOrderDetails(user.uid).then(viewOrderDetails);
       });
     }
   });
