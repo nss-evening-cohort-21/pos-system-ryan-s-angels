@@ -29,13 +29,13 @@ const viewOrderDetails = (orderObject, orderItems) => {
       <div class="card">
         <div class="card-body" style="height: 250px;">
           <h6 class="card-title">${item.itemName}</h6>
-          <p class="card-text bold">${item.itemPrice}</p>
+          <p class="card-text bold">$${item.itemPrice}</p>
           <hr>
           <div class="item-icons">
             <i id="edit-item-btn--${item.firebaseKey}"  class="btn btn-info">
               <span><i class= "fas fa-edit"></i></span>
             </i>
-            <i id="delete-item-btn--${item.firebaseKey}"  class="btn btn-danger">
+            <i id="delete-item-btn--${item.firebaseKey}"  class="btn btn-light">
               <span><i class= "fas fa-trash-alt"></i></span>
             </i>
           </div>
