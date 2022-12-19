@@ -83,7 +83,8 @@ const domEvents = (user) => {
 
     // CLOSE ORDER
     if (e.target.id.includes('go-to-payment-btn')) {
-      closeOrderForm(user);
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then(closeOrderForm);
     }
   });
 };

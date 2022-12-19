@@ -63,7 +63,7 @@ const formEvents = (user) => {
 
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-
+      console.warn('something catchy', e.target.id);
       const revenuePayload = {
         paymentType: document.querySelector('#payment-type').value,
         tip: document.querySelector('#tip').value,
@@ -76,14 +76,14 @@ const formEvents = (user) => {
       createRevenue(revenuePayload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateRevenue(patchPayload).then(() => {
-          getRevenue(user.uid).then(homeLoggedIn);
+          getRevenue(user.uid).then(homeLoggedIn(user));
         });
       });
 
       const orderPayload = {
         order_status: 'Closed',
       };
-
+      // get single order (firebase key)
       updateOrder(orderPayload).then(() => {
         getOrders(user.uid).then(showOrders);
       });
