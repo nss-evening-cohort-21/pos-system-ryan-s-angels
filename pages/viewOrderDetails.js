@@ -44,7 +44,7 @@ const viewOrderDetails = (orderObject, orderItems) => {
     });
     domString += `
     <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
-    <button id="go-to-payment-btn" class="btn btn-primary">Go to Payment</button>`;
+    <button id="go-to-payment-btn--${orderObject.firebaseKey}" class="btn btn-primary">Go to Payment</button>`;
     renderToDOM('#itemCards', domString);
   }
 };

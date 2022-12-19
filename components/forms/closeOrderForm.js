@@ -3,11 +3,11 @@ import renderToDOM from '../../utils/renderToDom';
 
 const paymentTypeArray = ['Cash', 'Credit', 'Mobile'];
 
-const closeOrderForm = (obj = {}) => {
+const closeOrderForm = (obj) => {
   clearDom();
   console.warn(obj);
   let domString = `
-  <form id="${obj.firebaseKey ? `close-order--${obj.firebaseKey}` : 'submit-revenue'}" class="mb-4">
+  <form id="${`close-order--${obj.firebaseKey}`}" class="mb-4">
   <label>Time To Close Your Order!</label>
       <select class="form-select" id="payment-type" aria-label="Default select example" required>
       <option>How Will You Be Paying Today?</option>
