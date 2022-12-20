@@ -1,5 +1,5 @@
 import {
-  getOrders, createOrder, updateOrder, getSingleOrder
+  getOrders, createOrder, updateOrder, getSingleOrder, getOrderItems
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import { updateRevenue, getRevenue, createRevenue } from '../api/revenueData';
@@ -64,30 +64,37 @@ const formEvents = (user) => {
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       console.warn('something catchy', e.target.id);
-      const revenuePayload = {
-        paymentType: document.querySelector('#payment-type').value,
-        tip: document.querySelector('#tip').value,
-        // total: order items plus tip,
-        date: currentDate,
-        firebaseKey,
-        uid: user.uid,
-      };
 
-      createRevenue(revenuePayload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
-        updateRevenue(patchPayload).then(() => {
-          getRevenue(user.uid).then(homeLoggedIn(user));
+      getOrderItems(firebaseKey).then((itemsArray) => {
+        const itemTotal = itemsArray.map((item) => Number(item.itemPrice)).reduce((a, b) => a + b, 0);
+        const justTip = Number(document.querySelector('#tip').value);
+        console.warn(itemTotal);
+        const revenuePayload = {
+          paymentType: document.querySelector('#payment-type').value,
+          tip: justTip,
+          total: itemTotal + justTip,
+          date: currentDate,
+          orderId: firebaseKey,
+          uid: user.uid,
+        };
+        createRevenue(revenuePayload).then(({ name }) => {
+          const patchPayload = { firebaseKey: name };
+          updateRevenue(patchPayload).then(() => {
+            getRevenue(user.uid).then(homeLoggedIn(user));
+          });
         });
       });
 
       const orderPayload = {
         order_status: 'Closed',
+        firebaseKey,
       };
       // get single order (firebase key)
       updateOrder(orderPayload).then(() => {
         getOrders(user.uid).then(showOrders);
       });
     }
+
     // CLICK EVENT FOR ADDING AN ITEM
 
     if (e.target.id.includes('submit-item')) {
