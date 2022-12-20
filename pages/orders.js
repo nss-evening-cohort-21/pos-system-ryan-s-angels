@@ -16,8 +16,7 @@ const showOrders = (array) => {
   console.warn(array);
   let domString = '';
   array.forEach((item) => {
-    if (item.order_status === 'Open') {
-      domString += `
+    domString += `
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${item.order_name}</h5>
@@ -32,7 +31,6 @@ const showOrders = (array) => {
       </div>
     </div>
     `;
-    }
   });
   renderToDOM('#cards-on-dom', domString);
 };
