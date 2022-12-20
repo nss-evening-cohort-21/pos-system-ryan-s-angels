@@ -67,12 +67,12 @@ const formEvents = (user) => {
 
       getOrderItems(firebaseKey).then((itemsArray) => {
         const itemTotal = itemsArray.map((item) => Number(item.itemPrice)).reduce((a, b) => a + b, 0);
-        const justTip = Number(document.querySelector('#tip').value);
+        const justTheTip = Number(document.querySelector('#tip').value);
         console.warn(itemTotal);
         const revenuePayload = {
           paymentType: document.querySelector('#payment-type').value,
-          tip: justTip,
-          total: itemTotal + justTip,
+          tip: justTheTip,
+          total: itemTotal + justTheTip,
           date: currentDate,
           orderId: firebaseKey,
           uid: user.uid,
