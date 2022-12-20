@@ -27,8 +27,12 @@ const showOrders = (array) => {
         <hr>`;
     if (item.order_status === 'open') {
       domString += `<i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
-        <i class="fas fa-edit btn btn-info" id="edit-order-btn--${item.firebaseKey}"></i>
-        <i class="btn btn-light fas fa-trash-alt" id="delete-order-btn--${item.firebaseKey}"></i>
+        <i id="edit-order-btn--${item.firebaseKey}" class="btn btn-info">
+        <span><i class= "fas fa-edit"></i></span>
+        </i>
+        <i id="delete-order-btn--${item.firebaseKey}"  class="btn btn-light">
+              <span><i class= "fas fa-trash-alt"></i></span>
+            </i>
       </div>
     </div>
     `;
