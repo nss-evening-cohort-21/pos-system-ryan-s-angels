@@ -24,13 +24,21 @@ const showOrders = (array) => {
         <p class="card-text bold">${item.phone_number}</p>
         <p class="card-text bold">${item.email}</p>
         <p class="card-text bold">${item.order_type}</p>
-        <hr>
-        <i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
+        <hr>`;
+
+    if (item.order_status === 'open') {
+      domString += `<i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
         <i class="fas fa-edit btn btn-info" id="edit-order-btn--${item.firebaseKey}"></i>
         <i class="btn btn-light fas fa-trash-alt" id="delete-order-btn--${item.firebaseKey}"></i>
       </div>
     </div>
     `;
+    } else if (item.order_status === 'Closed') {
+      domString += `<i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
+      </div>
+    </div>
+    `;
+    }
   });
   renderToDOM('#cards-on-dom', domString);
 };
