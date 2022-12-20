@@ -16,7 +16,16 @@ const viewOrderDetails = (orderObject, orderItems) => {
       <div class="text-white ms-5 details">
         <h5>${orderObject.order_name}</h5>
         <div>
+          Order Status: <a href="mailto:${orderObject.order_status}">${orderObject.order_status}</a>
+        </div>
+        <div>
           Email: <a href="mailto:${orderObject.email}">${orderObject.email}</a>
+        </div>
+        <div>
+          Phone Number: <a href="mailto:${orderObject.phone_number}">${orderObject.phone_number}</a>
+        </div>
+        <div>
+          Order Type: <a href="mailto:${orderObject.order_type}">${orderObject.order_type}</a>
         </div>
         <hr>
       </div>

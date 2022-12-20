@@ -19,12 +19,13 @@ const showOrders = (array) => {
     domString += `
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">${item.order_name}</h5>
-        <p class="card-text bold">${item.order_status}</p>
-        <p class="card-text bold">${item.phone_number}</p>
-        <p class="card-text bold">${item.email}</p>
-        <p class="card-text bold">${item.order_type}</p>
-        <hr>`;
+        <h5 class="card-title">Name: ${item.order_name}</h5>
+        <p class="card-text bold">Order Status: ${item.order_status}</p>
+        <p class="card-text bold">Phone Number: ${item.phone_number}</p>
+        <p class="card-text bold">Email: ${item.email}</p>
+        <p class="card-text bold">Order Type: ${item.order_type}</p>
+        <hr>
+        <i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
 
     if (item.order_status === 'open') {
       domString += `<i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
