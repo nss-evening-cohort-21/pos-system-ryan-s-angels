@@ -24,9 +24,7 @@ const showOrders = (array) => {
         <p class="card-text bold">Phone Number: ${item.phone_number}</p>
         <p class="card-text bold">Email: ${item.email}</p>
         <p class="card-text bold">Order Type: ${item.order_type}</p>
-        <hr>
-        <i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
-
+        <hr>`;
     if (item.order_status === 'open') {
       domString += `<i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
         <i class="fas fa-edit btn btn-info" id="edit-order-btn--${item.firebaseKey}"></i>
