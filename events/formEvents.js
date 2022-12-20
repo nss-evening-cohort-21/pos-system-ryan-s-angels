@@ -3,7 +3,7 @@ import {
 } from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import { updateRevenue, getRevenue, createRevenue } from '../api/revenueData';
-import { updateItem, createItem } from '../api/itemData';
+import { updateItem, createItem, getSingleItem } from '../api/itemData';
 import { getOrderDetails } from '../api/mergedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 import homeLoggedIn from '../pages/homeLoggedIn';
@@ -120,9 +120,15 @@ const formEvents = (user) => {
         itemPrice: document.querySelector('#item-price').value,
         firebaseKey,
       };
-
       updateItem(payload).then(() => {
-        getOrderDetails(user.uid).then(viewOrderDetails);
+        // eslint-disable-next-line no-shadow
+        getSingleItem(firebaseKey).then((payload) => {
+          getOrderDetails(payload.orderId).then((itemArray) => {
+            getSingleOrder(payload.orderId).then((orderObj) => {
+              viewOrderDetails(orderObj, itemArray);
+            });
+          });
+        });
       });
     }
   });
