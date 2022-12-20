@@ -39,7 +39,9 @@ const viewOrderDetails = (orderObject, orderItems) => {
         <div class="card-body" style="height: 250px;">
           <h6 class="card-title">${item.itemName}</h6>
           <p class="card-text bold">$${item.itemPrice}</p>
-          <hr>
+          <hr>`;
+      if (orderObject.order_status === 'open') {
+        domString += `
           <div class="item-icons">
             <i id="edit-item-btn--${item.firebaseKey}"  class="btn btn-info">
               <span><i class= "fas fa-edit"></i></span>
@@ -47,13 +49,17 @@ const viewOrderDetails = (orderObject, orderItems) => {
             <i id="delete-item-btn--${item.firebaseKey}"  class="btn btn-light">
               <span><i class= "fas fa-trash-alt"></i></span>
             </i>
-          </div>
+          </div>`;
+      }
+      domString += `
         </div>
       </div>`;
     });
-    domString += `
+    if (orderObject.order_status === 'open') {
+      domString += `
     <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
     <button id="go-to-payment-btn--${orderObject.firebaseKey}" class="btn btn-primary">Go to Payment</button>`;
+    }
     renderToDOM('#itemCards', domString);
   }
 };
