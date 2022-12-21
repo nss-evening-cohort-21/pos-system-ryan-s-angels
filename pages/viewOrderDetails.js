@@ -57,8 +57,10 @@ const viewOrderDetails = (orderObject, orderItems) => {
     });
     if (orderObject.order_status === 'open') {
       domString += `
-    <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
-    <button id="go-to-payment-btn--${orderObject.firebaseKey}" class="btn btn-primary">Go to Payment</button>`;
+      <div id="item-buttons">
+        <button id="add-item-btn--${orderObject.firebaseKey}" class="btn btn-success">Add Item</button>
+        <button id="go-to-payment-btn--${orderObject.firebaseKey}" class="btn btn-primary">Go to Payment</button>
+      </div>`;
     }
     renderToDOM('#itemCards', domString);
   }
