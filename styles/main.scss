@@ -46,9 +46,23 @@ h5, h6 {
     justify-content: center;
 }
 
+#itemCards {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+}
+
+#item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
 #order-name, #phone-number, #email, #order-type, #item-name, #item-price, #order-is-closed, #tip, #payment-type {
   font-size: 18pt;
-
 } 
 
 a[href^="mailto"] { 
