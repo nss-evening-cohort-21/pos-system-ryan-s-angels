@@ -26,7 +26,7 @@ const showOrders = (array) => {
         <p class="card-text bold">Order Type: ${item.order_type}</p>
         <hr>`;
     if (item.order_status === 'open') {
-      domString += `<i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
+      domString += `<i class="btn btn-success" id="view-items-btn--${item.firebaseKey}"><span><i class= "fas fa-eye"></i></span></i>
         <i id="edit-order-btn--${item.firebaseKey}" class="btn btn-info">
         <span><i class= "fas fa-edit"></i></span>
         </i>
@@ -37,7 +37,7 @@ const showOrders = (array) => {
     </div>
     `;
     } else if (item.order_status === 'Closed') {
-      domString += `<i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
+      domString += `<i class="btn btn-success" id="view-items-btn--${item.firebaseKey}"><span><i class= "fas fa-eye"></i></span></i>
       </div>
     </div>
     `;
