@@ -63,7 +63,7 @@ const formEvents = (user) => {
 
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      console.warn('something catchy', e.target.id);
+      // console.warn('something catchy', e.target.id);
 
       getOrderItems(firebaseKey).then((itemsArray) => {
         const itemTotal = itemsArray.map((item) => Number(item.itemPrice)).reduce((a, b) => a + b, 0);
