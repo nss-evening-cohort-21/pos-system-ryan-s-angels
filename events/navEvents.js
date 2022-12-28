@@ -25,6 +25,20 @@ const navigationEvents = (user) => {
       addOrderForm(user.uid);
     });
 
+  // SEARCH ORDERS
+
+  document.querySelector('#search').addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const searchValue = document.querySelector('#search').value.toLowerCase();
+      getOrders(user.uid).then((orders) => {
+        const foundOrders = orders.filter((taco) => taco.order_name.toLowerCase().includes(searchValue) || taco.phone_number.toLowerCase().includes(searchValue) || taco.email.includes(searchValue) || taco.order_type.toLowerCase().includes(searchValue));
+        showOrders(foundOrders);
+      });
+      document.querySelector('#search').value = '';
+    }
+  });
+
   // LOGOUT BUTTON
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);

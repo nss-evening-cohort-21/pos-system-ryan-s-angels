@@ -19,6 +19,14 @@ const navBar = () => {
             <li class="nav-item">
               <a class="nav-link" href="#" id="create-order">New Order</a>
             </li>
+            <li>
+            <input
+              class="form-control mr-sm-4"
+              id="search"
+              placeholder="Search Orders"
+              aria-label="Search"
+            />
+            </li>
           </ul>
           <span class="navbar-text">
             <div id="logout-button"><button id="google-auth" class="btn btn-danger">SIGNOUT</button></div>
